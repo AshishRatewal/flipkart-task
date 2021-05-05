@@ -14,7 +14,7 @@ const Header = () => {
       <main className="bg-primary text-light py-2 sticky-top">
         <div className="container">
           <div className="row">
-            <div className="col-2 my-auto">
+            <div className="col-md-2 my-auto">
               <h4>
                 <Link to="/" className="text-light">
                   <img
@@ -25,8 +25,8 @@ const Header = () => {
                 </Link>
               </h4>
             </div>
-            <div className="col-6 my-auto">
-              <div className="form-group my-auto">
+            <div className="col-md-6 my-auto">
+              <div className="form-group my-auto same">
                 <input
                   type="search"
                   className="form-control"
@@ -34,14 +34,14 @@ const Header = () => {
                 />
               </div>
             </div>
-            <div className="col-4 my-auto">
+            <div className="col-md-4 my-auto">
               <div className="row">
-                <div className="col-6 my-auto">
+                <div className="col-md-6 my-auto same">
                   <Link to="/Login">
                     <button className="btn btn-light btn-block">Login</button>
                   </Link>
                 </div>
-                <div className="col-6 my-auto">
+                <div className="col-md-6 my-auto same">
                   <Link to="/ProductCart">
                     <button type="button" className="btn btn-light btn-block">
                       Cart <span className="badge badge-primary">{count}</span>

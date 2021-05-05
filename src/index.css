@@ -11,3 +11,25 @@
 .flex .flexTwo{
     flex: 1;
 }
+.invert{
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+@media only screen and (max-width: 321px) {
+    .same{
+        padding: 5px 0;
+    }
+    .width{
+        width: 100%;
+        height: auto;
+        max-width: 200px;
+        display: block;
+        margin: 0 auto;
+    }
+    .flex{
+        flex-direction: column;
+    }
+}

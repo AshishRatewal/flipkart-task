@@ -41,14 +41,14 @@ const ProductCartItems = () => {
         <div className="row mb-3" key={id}>
           <div className="col-12">
             <div className="row border rounded p-5">
-              <div className="col-4">
+              <div className="col-md-4">
                 <img
                   src={image}
                   alt={title}
                   className="w-100 mx-auto d-block"
                 />
               </div>
-              <div className="col-8">
+              <div className="col-md-8">
                 <h3>Title:- {title}</h3>
                 <p className="font-weight-bold mb-0 mt-2">{price}$</p>
                 <p className="font-weight-bold">Category:- {category}</p>
