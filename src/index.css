@@ -1,0 +1,13 @@
+.width{
+    width: 200px;
+    height: 200px;
+}
+.flex{
+    display: flex;  
+}
+.flex .flexOne{
+    flex: 2;
+}
+.flex .flexTwo{
+    flex: 1;
+}
