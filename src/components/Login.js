@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { addToCart } from "../redux/Action/Actions";
-import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 const Login = () => {
-  const dispatch = useDispatch();
+  const history = useHistory();
   const loginId = "admin@gmail.com";
   const loginPass = "123456789";
   const inputObject = {
@@ -58,10 +57,16 @@ const Login = () => {
       checkErr();
     } else {
       if (email == loginId && password == loginPass) {
-        window.alert("Your'r Item is Placed");
+        window.alert("Login Successfull");
         setInputs(inputObject);
-        localStorage.removeItem("cartItems");
-        dispatch(addToCart(""));
+        let getLoginCred = JSON.parse(localStorage.getItem("loginData"));
+        if (getLoginCred !== undefined) {
+          localStorage.setItem("loginData", JSON.stringify(inputs));
+          history.push("/ProductCart");
+        } else {
+          localStorage.setItem("loginData", JSON.stringify(inputs));
+          history.push("/ProductCart");
+        }
       } else {
         window.alert("Sorry! Data not matched");
         setInputs(inputObject);
