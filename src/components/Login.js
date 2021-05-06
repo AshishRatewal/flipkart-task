@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { addToCart } from "../redux/Action/Actions";
+import { useDispatch } from "react-redux";
 const Login = () => {
+  const dispatch = useDispatch();
   const loginId = "admin@gmail.com";
   const loginPass = "123456789";
   const inputObject = {
@@ -54,10 +57,14 @@ const Login = () => {
     ) {
       checkErr();
     } else {
-      if(email == loginId && password == loginPass){
-        window.alert("data matched");
-      }else{
+      if (email == loginId && password == loginPass) {
+        window.alert("Your'r Item is Placed");
+        setInputs(inputObject);
+        localStorage.removeItem("cartItems");
+        dispatch(addToCart(""));
+      } else {
         window.alert("Sorry! Data not matched");
+        setInputs(inputObject);
       }
     }
   };
@@ -81,7 +88,7 @@ const Login = () => {
                   placeholder="Enter email"
                   onChange={getLoginData}
                   autoComplete="off"
-                  // value={inputObject.email}
+                  value={inputs.email}
                 />
                 <small className="text-danger">{err.emailErr}</small>
               </div>
@@ -95,7 +102,7 @@ const Login = () => {
                   placeholder="Password"
                   onChange={getLoginData}
                   autoComplete="off"
-                  // value={inputObject.password}
+                  value={inputs.password}
                 />
                 <small className="text-danger">{err.passwordErr}</small>
               </div>
