@@ -1,13 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import {getSearchData} from '../redux/Action/Actions';
 const Header = () => {
+  const dispatch = useDispatch();
   const cartTotalItems = useSelector((state) => state.items.items.id);
   let count = 0;
   if (cartTotalItems !== undefined) {
     for (let i = 0; i < cartTotalItems.length; i++) {
       count++;
     }
+  }
+  const getSearchTerm = (e) => {
+    const {value} = e.target;
+    dispatch(getSearchData(value));
   }
   return (
     <>
@@ -31,6 +37,7 @@ const Header = () => {
                   type="search"
                   className="form-control"
                   placeholder="Search..."
+                  onChange={getSearchTerm}
                 />
               </div>
             </div>

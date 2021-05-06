@@ -4,7 +4,14 @@ import { useSelector } from "react-redux";
 
 const ProductComponents = () => {
   const products = useSelector((state) => state.allProduct.products);
-  const renderList = products.map((product) => {
+  const searchData = useSelector((state) => state.searchTERM.searchTermData);
+  const renderList = products.filter((val) => {
+    if(searchData == ""){
+      return val
+    }else if(val.title.toLowerCase().includes(searchData.toLowerCase())){
+      return val
+    }
+  }).map((product) => {
     const { category, id, image, price, title } = product;
     return (
       <div className="col-md-3 mb-3" key={id}>

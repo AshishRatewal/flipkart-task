@@ -4,6 +4,7 @@ import {
   REMOVE_FROM_CART,
   SELECTED_PRODUCT,
   REMOVE_SELECTED_PRODUCT,
+  GET_SEARCH_DATA,
 } from "../Store/Event";
 // this is the action for set the product which we got from api
 export const setProduct = (products) => {
@@ -43,3 +44,10 @@ export const removeSelectedProduct = () => {
     type: REMOVE_SELECTED_PRODUCT,
   };
 };
+// search
+export const getSearchData = (searchTerm) => {
+  return {
+    type: GET_SEARCH_DATA,
+    payload: searchTerm,
+  }
+}
